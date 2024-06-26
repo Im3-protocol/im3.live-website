@@ -11,3 +11,37 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+
+@font-face {
+  font-family: 'PorterFT';
+  src: url('./components/assets/font/PorterFT-Regular.woff') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'DM Sans';
+  src: url('./components/assets/font/DMSans_18pt-SemiBold.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}
+@font-face {
+  font-family: 'DM Sans Bold';
+  src: url('./components/assets/font/DMSans-Bold.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'DMSans-Regular';
+  src: url('./components/assets/font/DMSans-Regular.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'DMSans-Medium';
+  src: url('./components/assets/font/DMSans-Medium.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}

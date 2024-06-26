@@ -1,18 +1,19 @@
-// src/Main.js
 import React from "react";
 import Box from "@mui/material/Box";
 import HeroSection from "./HeroSection";
-import Features from "./Features";
 import IntroPart from "./IntroPart";
 import ListOfUseCases from "./ListOfUseCases";
+import Slider from "./Slider";
+import Roadmap from "./Roadmap";
 
 const Main = () => {
   return (
-    <Box sx={{ backgroundColor: "#190E49", color: "white", p: 4 }}>
+    <Box sx={{ backgroundColor: "#01001E", color: "white" }}>
       <HeroSection />
-      <Features />
+      <Slider />
       <IntroPart />
       <ListOfUseCases />
+      <Roadmap />
     </Box>
   );
 };

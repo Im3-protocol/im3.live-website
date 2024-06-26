@@ -1,38 +1,90 @@
-// src/Navbar.js
 import React from "react";
 import AppBar from "@mui/material/AppBar";
 import Toolbar from "@mui/material/Toolbar";
 import Typography from "@mui/material/Typography";
 import Box from "@mui/material/Box";
 import Link from "@mui/material/Link";
+import Button from "@mui/material/Button";
 
 const Navbar = () => {
   return (
     <AppBar
-      position="fixed"
+      position="static"
       sx={{
-        background: "rgba(25, 14, 73, 0.6)",
-        backdropFilter: "blur(10px)",
-        boxShadow: "0 4px 4px 0 rgba(0, 0, 0, 0.25)",
+        backgroundColor: "#01001E",
         color: "white",
       }}
     >
       <Toolbar>
-        <Box sx={{ flexGrow: 1, display: "flex", alignItems: "center" }}>
+        <Box
+          sx={{
+            flexGrow: 1,
+            display: "flex",
+            alignItems: "center",
+            margin: "30px",
+          }}
+        >
           <Link href="/">
             <img src="/logo.svg" alt="Logo" />
           </Link>
         </Box>
         <Box>
-          <Link href="#about" color="inherit" sx={{ marginRight: 2 }}>
-            About
-          </Link>
-          <Link href="#contact" color="inherit" sx={{ marginRight: 2 }}>
-            Contact
-          </Link>
-          <Link href="#home" color="inherit" sx={{ marginRight: 2 }}>
+          <Button
+            href="#home"
+            color="inherit"
+            sx={{
+              fontSize: "16px",
+              marginRight: 2,
+              "&:hover": {
+                backgroundColor: "#F0F0F2", // Change background color on hover
+                color: "#01001E", // Change text color on hover
+              },
+            }}
+          >
             Home
-          </Link>
+          </Button>
+          <Button
+            href="#home"
+            color="inherit"
+            sx={{
+              fontSize: "16px",
+              marginRight: 2,
+              "&:hover": {
+                backgroundColor: "#F0F0F2", // Change background color on hover
+                color: "#01001E", // Change text color on hover
+              },
+            }}
+          >
+            team
+          </Button>
+          <Button
+            href="#home"
+            color="inherit"
+            sx={{
+              fontSize: "16px",
+              marginRight: 2,
+              "&:hover": {
+                backgroundColor: "#F0F0F2", // Change background color on hover
+                color: "#01001E", // Change text color on hover
+              },
+            }}
+          >
+            services
+          </Button>
+          <Button
+            href="#about"
+            color="inherit"
+            sx={{
+              fontSize: "16px",
+              marginRight: 2,
+              "&:hover": {
+                backgroundColor: "#F0F0F2", // Change background color on hover
+                color: "#01001E", // Change text color on hover
+              },
+            }}
+          >
+            About
+          </Button>
         </Box>
       </Toolbar>
     </AppBar>

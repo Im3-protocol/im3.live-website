@@ -1,70 +1,112 @@
-// src/HeroSection.js
 import React from "react";
 import Box from "@mui/material/Box";
 import Typography from "@mui/material/Typography";
 import Button from "@mui/material/Button";
-import { styled } from "@mui/system";
-
-const GradientText = styled("span")({
-  background:
-    "linear-gradient(to bottom, #B2EBF2 0%, #D1C4E9 65%, #F8BBD0 100%)",
-  WebkitBackgroundClip: "text",
-  WebkitTextFillColor: "transparent",
-  display: "inline-block",
-  fontWeight: "bold",
-});
+import heroBackground from "./assets/images/Hero_Background.png";
+import { ReactComponent as JoinIcon } from "./assets/images/JoinIcon.svg";
+import { ReactComponent as MeetIcon } from "./assets/images/MeetIcon.svg";
 
 const HeroSection = () => {
   return (
     <Box
       sx={{
-        textAlign: "center",
-        py: 8,
         display: "flex",
-        flexDirection: "column",
         justifyContent: "center",
-        height: "60vh",
+        alignItems: "center",
+        height: "100vh",
+        width: "100vw",
+        margin: 0,
+        padding: 0,
+        bgcolor: "#01001E",
+        position: "relative",
       }}
     >
-      <Typography
-        variant="h2"
-        component="div"
+      <Box
         sx={{
-          mb: 2,
-          display: "inline",
-          fontWeight: "bold",
+          position: "absolute",
+          top: "50%",
+          left: "50%",
+          transform: "translate(-50%, -50%)",
+          height: "773px",
+          width: "1057px",
+          backgroundImage: `url(${heroBackground})`,
+          backgroundSize: "cover",
+          backgroundPosition: "center",
+          backgroundRepeat: "no-repeat",
         }}
       >
-        Lorem ipsom dolor sitam <GradientText>consecteture</GradientText>
-      </Typography>
-      <Typography variant="body1" component="div" sx={{ mb: 4 }}>
-        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
-        tempor incididunt ut labore et dolore magna aliqua.
-      </Typography>
-      <Box sx={{ display: "flex", justifyContent: "center", gap: 2 }}>
-        <Button
-          variant="contained"
+        <Box
           sx={{
-            bgcolor: "#84FFFF",
-            borderRadius: "10px",
-            padding: "16px 28px",
-            color: "black",
-          }}
-        >
-          Start Meeting
-        </Button>
-        <Button
-          variant="outlined"
-          sx={{
-            bgcolor: "#190E49",
-            border: "1px solid white",
-            borderRadius: "10px",
-            padding: "16px 28px",
+            position: "absolute",
+            top: "50%",
+            left: "50%",
+            transform: "translate(-50%, -50%)",
+            width: "802px",
+            textAlign: "center",
             color: "white",
           }}
         >
-          Read Documentation
-        </Button>
+          <Typography
+            variant="h2"
+            component="div"
+            sx={{
+              mb: 2,
+              fontSize: "48px",
+              fontFamily: "PorterFT",
+              color: "#F0F0F2",
+            }}
+          >
+            Decentralized and Public
+            <br />
+            Real-time&nbsp;Cloud
+          </Typography>
+          <Typography
+            variant="body1"
+            component="div"
+            sx={{
+              mb: 4,
+              fontSize: "20px",
+              lineHeight: 1.5,
+              fontFamily: "DM Sans Bold",
+              color: "#F0F0F2",
+            }}
+          >
+            IM3 is the Web3 Evolution of Real-Time Cloud. Revolutionizing the
+            creation and expansion of voice, video applications, and
+            Conversational AI.
+          </Typography>
+          <Box sx={{ display: "flex", justifyContent: "center", gap: 2 }}>
+            <Button
+              variant="contained"
+              endIcon={<MeetIcon />}
+              sx={{
+                color: "white",
+                bgcolor: "#BF3F34",
+                borderRadius: "25px",
+                padding: "10px 24px",
+                fontFamily: "DM Sans",
+                textTransform: "none",
+              }}
+            >
+              Try IM3 Meet
+            </Button>
+            <Button
+              variant="outlined"
+              endIcon={<JoinIcon />}
+              sx={{
+                color: "black",
+                bgcolor: "white",
+                border: "1px solid white",
+                borderRadius: "25px",
+                padding: "10px 24px",
+                fontFamily: "DM Sans",
+                textTransform: "none",
+              }}
+            >
+              Join US
+            </Button>
+          </Box>
+        </Box>
       </Box>
     </Box>
   );
