@@ -10,15 +10,13 @@ import FastScalable from "./assets/images/cards/Fast & scalable.png";
 import TokenBasedEconomy from "./assets/images/cards/Token-based Economy.png";
 import ProgrammableSpacesApps from "./assets/images/cards/Programmable Spaces & Apps.png";
 import CompatibleFutureWeb from "./assets/images/cards/Compatible with the Future Web.png";
-// Import Swiper React components
+
 import { Swiper, SwiperSlide } from "swiper/react";
 
-// Import Swiper styles
 import "swiper/css";
 import "swiper/css/navigation";
 import "swiper/css/pagination";
 
-// import required modules
 import { Navigation, Pagination } from "swiper/modules";
 
 const features = [
@@ -70,8 +68,8 @@ const Slider = () => {
   return (
     <Box sx={styles.sliderContainer}>
       <Swiper
-        spaceBetween={2} // Reduced space between slides
-        slidesPerView={3} // Show 3 cards at a time
+        spaceBetween={2}
+        slidesPerView={3}
         navigation
         pagination={{ clickable: true }}
         onSlideChange={() => console.log("slide change")}
@@ -95,14 +93,14 @@ const Slider = () => {
 
 const styles = {
   sliderContainer: {
-    width: "90%", // Increased width of the container to 90% of the page
-    height: "60vh", // Set a fixed height for the container
+    width: "90%",
+    height: "60vh",
     margin: "60px auto",
     position: "relative",
     "& .swiper-button-next, & .swiper-button-prev": {
       color: "#fff",
-      top: "50%", // Adjust top position for more space
-      fontSize: "18px", // Increase font size for better visibility
+      top: "50%",
+      fontSize: "18px",
       zIndex: 1,
     },
     "& .swiper-pagination-bullet": {
@@ -110,7 +108,7 @@ const styles = {
       border: "1px solid white",
     },
     "& .swiper-pagination": {
-      bottom: "20px", // Adjust bottom position for more space
+      bottom: "20px",
     },
   },
   swiper: {
@@ -119,8 +117,8 @@ const styles = {
   },
   swiperSlide: {
     display: "flex",
-    justifyContent: "center", // Center the cards
-    padding: "0", // Remove padding to reduce space
+    justifyContent: "center",
+    padding: "0",
   },
 };
 

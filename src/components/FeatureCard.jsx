@@ -26,8 +26,8 @@ const styles = {
   card: {
     display: "flex",
     flexDirection: "column",
-    width: 340, // Reduced width
-    height: 420, // Reduced height
+    width: 340,
+    height: 420,
     backgroundColor: "rgba(255, 246, 246, 0.1)",
     backdropFilter: "blur(100px)",
     border: "1px solid rgba(240, 240, 242, 0.5)",
@@ -39,10 +39,10 @@ const styles = {
   },
   image: {
     width: "100%",
-    maxHeight: 160, // Reduced max height for the image
+    maxHeight: 160,
     objectFit: "cover",
     borderRadius: 2,
-    marginBottom: 0, // Reduced or removed marginBottom
+    marginBottom: 0,
     marginTop: "20px",
   },
   textContainer: {
@@ -50,17 +50,17 @@ const styles = {
     flexDirection: "column",
     justifyContent: "flex-start",
     alignItems: "flex-start",
-    padding: "35px", // Adjusted padding for better spacing
+    padding: "35px",
   },
   title: {
     fontFamily: "PorterFT, Arial, sans-serif",
     fontSize: 16,
-    margin: "5px 0 2px 0", // Reduced bottom margin to decrease space between title and description
+    margin: "5px 0 2px 0",
     color: "white",
   },
   description: {
     fontFamily: "DM Sans, Arial, sans-serif",
-    margin: "2px 0", // Adjusted margin to decrease space
+    margin: "2px 0",
     color: "white",
   },
 };
