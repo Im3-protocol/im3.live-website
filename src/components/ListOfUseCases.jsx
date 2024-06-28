@@ -7,7 +7,7 @@ import {
   ListItem,
   ListItemIcon,
 } from "@mui/material";
-import InfoIcon from "@mui/icons-material/Info";
+import CircleIcon from "@mui/icons-material/Circle";
 
 import liveStreamingIcon from "./assets/images/icons/Live Streaming and Events.png";
 import educationIcon from "./assets/images/icons/Education and E-Learning.png";
@@ -133,7 +133,7 @@ const ListOfUseCases = () => (
               borderRadius: "16px",
               display: "flex",
               flexDirection: "column",
-              minHeight: 300,
+              minHeight: 250,
               flex: 1,
               backgroundColor: "rgba(253, 253, 253, 0.1)",
             }}
@@ -153,7 +153,7 @@ const ListOfUseCases = () => (
               {useCase.items.map((item, idx) => (
                 <ListItem key={idx} sx={{ py: 0 }}>
                   <ListItemIcon sx={{ minWidth: 24 }}>
-                    <InfoIcon sx={{ color: "cyan", fontSize: 20 }} />
+                    <CircleIcon sx={{ color: "#F5F5F5", fontSize: 5 }} />
                   </ListItemIcon>
                   <Typography variant="body2">{item}</Typography>
                 </ListItem>
