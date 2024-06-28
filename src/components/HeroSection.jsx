@@ -19,6 +19,7 @@ const HeroSection = () => {
         padding: 0,
         bgcolor: "#01001E",
         position: "relative",
+        bgcolor: "transparent",
       }}
     >
       <Box

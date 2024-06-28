@@ -7,7 +7,7 @@ import bulletIcon from "./assets/images/BulletIcon.png";
 const IntroPart = () => (
   <Box
     sx={{
-      bgcolor: "#01001E",
+      bgcolor: "transparent",
       color: "#fff",
       width: "90%",
       mx: "auto",

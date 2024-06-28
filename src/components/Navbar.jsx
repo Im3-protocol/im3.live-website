@@ -11,8 +11,10 @@ const Navbar = () => {
     <AppBar
       position="static"
       sx={{
-        backgroundColor: "#01001E",
+        backgroundColor: "transparent",
         color: "white",
+        boxShadow: "none", // Removes any shadow
+        border: "none", // Ensures there is no border
       }}
     >
       <Toolbar>
@@ -55,7 +57,7 @@ const Navbar = () => {
               },
             }}
           >
-            team
+            Team
           </Button>
           <Button
             href="#home"
@@ -69,7 +71,7 @@ const Navbar = () => {
               },
             }}
           >
-            services
+            Services
           </Button>
           <Button
             href="#about"

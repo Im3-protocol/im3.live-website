@@ -32,7 +32,7 @@ const ColorCircle = styled("span")(({ theme, status }) => ({
 const Roadmap = () => (
   <Box
     sx={{
-      bgcolor: "#01001E",
+      bgcolor: "transparent",
       color: "#fff",
       p: 2,
       borderRadius: 1,

@@ -115,7 +115,7 @@ const useCasesData = [
 const ListOfUseCases = () => (
   <Box
     sx={{
-      backgroundColor: "#01001E",
+      bgcolor: "transparent",
       color: "white",
       p: 4,
       maxWidth: 1200,

@@ -15,7 +15,7 @@ function Footer() {
         flexDirection: "column",
         alignItems: "center",
         justifyContent: "center",
-        backgroundColor: "#01001E",
+        backgroundColor: "transparent",
         color: "white",
         padding: "60px 0",
       }}
