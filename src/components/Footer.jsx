@@ -34,19 +34,21 @@ function Footer() {
       {/* Logo */}
       <Box
         component="img"
-        sx={{
-          height: 60,
-        }}
-        src="./logo.svg"
+        sx={
+          {
+            // height: 90,
+          }
+        }
+        src="./logo1.svg"
         alt="Logo"
       />
 
       {/* Logotype */}
-      <Typography variant="h5" sx={{ mt: 2, fontFamily: "PorterFT" }}>
-        LOGOTYPE
-      </Typography>
+      {/* <Typography variant="h5" sx={{ mt: 2, fontFamily: "PorterFT" }}>
+        IM3
+      </Typography> */}
 
-      {/* Navigation Links */}
+      {/* Navigation Links
       <Box sx={{ display: "flex", mt: 2 }}>
         {[
           "Home",
@@ -60,7 +62,7 @@ function Footer() {
             {text}
           </Button>
         ))}
-      </Box>
+      </Box> */}
 
       {/* Follow Us Label */}
       <Typography variant="h6" sx={{ mt: 8, fontFamily: "PorterFT" }}>
@@ -80,26 +82,26 @@ function Footer() {
       {/* Social Media Icons */}
       <Box sx={{ mt: 1, display: "flex" }}>
         <IconButton sx={{ color: "white", mx: 2 }}>
-          <GitHubIcon sx={{ fontSize: 48 }} />
+          <GitHubIcon sx={{ fontSize: 32 }} />
         </IconButton>
         <IconButton sx={{ color: "white", mx: 2 }}>
-          <img src={XIcon} alt="X Icon" style={{ width: 48, height: 48 }} />
+          <img src={XIcon} alt="X Icon" style={{ width: 32, height: 32 }} />
         </IconButton>
         <IconButton sx={{ color: "white", mx: 2 }}>
-          <YouTubeIcon sx={{ fontSize: 48 }} />
+          <YouTubeIcon sx={{ fontSize: 32 }} />
         </IconButton>
         <IconButton sx={{ color: "white", mx: 2 }}>
           <img
             src={TelegramIcon}
             alt="Telegram Icon"
-            style={{ width: 48, height: 48 }}
+            style={{ width: 32, height: 32 }}
           />
         </IconButton>
         <IconButton sx={{ color: "white", mx: 2 }}>
           <img
             src={MirrorIcon}
             alt="Mirror Icon"
-            style={{ width: 48, height: 48 }}
+            style={{ width: 32, height: 32 }}
           />
         </IconButton>
       </Box>

@@ -16,8 +16,9 @@ import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/css";
 import "swiper/css/navigation";
 import "swiper/css/pagination";
+import "swiper/css/autoplay";
 
-import { Navigation, Pagination } from "swiper/modules";
+import { Navigation, Pagination, Autoplay } from "swiper/modules";
 
 const features = [
   {
@@ -71,10 +72,25 @@ const Slider = () => {
         spaceBetween={2}
         slidesPerView={3}
         navigation
-        pagination={{ clickable: true }}
+        // pagination={{ clickable: true }}
+        autoplay={{ delay: 2500, disableOnInteraction: false }}
+        breakpoints={{
+          640: {
+            slidesPerView: 1,
+            spaceBetween: 10,
+          },
+          768: {
+            slidesPerView: 2,
+            spaceBetween: 10,
+          },
+          1024: {
+            slidesPerView: 3,
+            spaceBetween: 10,
+          },
+        }}
         onSlideChange={() => console.log("slide change")}
         onSwiper={(swiper) => console.log(swiper)}
-        modules={[Navigation, Pagination]}
+        modules={[Navigation, Pagination, Autoplay]}
         style={styles.swiper}
       >
         {features.map((feature, index) => (

@@ -53,8 +53,8 @@ const styles = {
     padding: "35px",
   },
   title: {
-    fontFamily: "PorterFT, Arial, sans-serif",
-    fontSize: 16,
+    fontFamily: "DM Sans Bold , Arial, sans-serif",
+    fontSize: 18,
     margin: "5px 0 2px 0",
     color: "white",
   },

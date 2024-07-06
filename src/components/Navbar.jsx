@@ -1,20 +1,77 @@
-import React from "react";
+import React, { useState } from "react";
 import AppBar from "@mui/material/AppBar";
 import Toolbar from "@mui/material/Toolbar";
-import Typography from "@mui/material/Typography";
 import Box from "@mui/material/Box";
 import Link from "@mui/material/Link";
 import Button from "@mui/material/Button";
+import IconButton from "@mui/material/IconButton";
+import MenuIcon from "@mui/icons-material/Menu";
+import Drawer from "@mui/material/Drawer";
+import List from "@mui/material/List";
+import ListItem from "@mui/material/ListItem";
+import ListItemText from "@mui/material/ListItemText";
+import Hidden from "@mui/material/Hidden";
+import { styled } from "@mui/material/styles";
+
+const CustomButton = styled(Button)(({ theme }) => ({
+  fontSize: "16px",
+  marginRight: theme.spacing(2),
+  position: "relative",
+  textTransform: "none", // Added this line
+  "&:hover": {
+    backgroundColor: "transparent",
+    color: "white",
+  },
+  "&::after": {
+    content: '""',
+    position: "absolute",
+    left: 0,
+    bottom: -6,
+    width: "100%",
+    height: "2px",
+    backgroundColor: "#FFFFFF",
+    transform: "scaleX(0)",
+    transformOrigin: "left",
+    transition: "transform 0.3s ease",
+  },
+  "&:hover::after": {
+    transform: "scaleX(1)",
+  },
+}));
+
+const CustomListItem = styled(ListItem)(({ theme }) => ({
+  textTransform: "none", // Added this line
+}));
 
 const Navbar = () => {
+  const [drawerOpen, setDrawerOpen] = useState(false);
+
+  const handleDrawerToggle = () => {
+    setDrawerOpen(!drawerOpen);
+  };
+
+  const menuItems = (
+    <>
+      <CustomButton href="#home" color="inherit">
+        Home
+      </CustomButton>
+      <CustomButton href="#about" color="inherit">
+        About
+      </CustomButton>
+      <CustomButton href="#contactus" color="inherit">
+        Contact Us
+      </CustomButton>
+    </>
+  );
+
   return (
     <AppBar
       position="static"
       sx={{
         backgroundColor: "transparent",
         color: "white",
-        boxShadow: "none", // Removes any shadow
-        border: "none", // Ensures there is no border
+        boxShadow: "none",
+        border: "none",
       }}
     >
       <Toolbar>
@@ -27,68 +84,48 @@ const Navbar = () => {
           }}
         >
           <Link href="/">
-            <img src="/logo.svg" alt="Logo" />
+            <img src="/logo1.svg" alt="Logo" />
           </Link>
         </Box>
-        <Box>
-          <Button
-            href="#home"
+        <Hidden mdDown>
+          <Box>{menuItems}</Box>
+        </Hidden>
+        <Hidden mdUp>
+          <IconButton
+            edge="start"
             color="inherit"
-            sx={{
-              fontSize: "16px",
-              marginRight: 2,
-              "&:hover": {
-                backgroundColor: "#F0F0F2", // Change background color on hover
-                color: "#01001E", // Change text color on hover
-              },
-            }}
+            aria-label="menu"
+            onClick={handleDrawerToggle}
           >
-            Home
-          </Button>
-          <Button
-            href="#home"
-            color="inherit"
-            sx={{
-              fontSize: "16px",
-              marginRight: 2,
-              "&:hover": {
-                backgroundColor: "#F0F0F2", // Change background color on hover
-                color: "#01001E", // Change text color on hover
-              },
-            }}
-          >
-            Team
-          </Button>
-          <Button
-            href="#home"
-            color="inherit"
-            sx={{
-              fontSize: "16px",
-              marginRight: 2,
-              "&:hover": {
-                backgroundColor: "#F0F0F2", // Change background color on hover
-                color: "#01001E", // Change text color on hover
-              },
-            }}
-          >
-            Services
-          </Button>
-          <Button
-            href="#about"
-            color="inherit"
-            sx={{
-              fontSize: "16px",
-              marginRight: 2,
-              "&:hover": {
-                backgroundColor: "#F0F0F2", // Change background color on hover
-                color: "#01001E", // Change text color on hover
-              },
-            }}
-          >
-            About
-          </Button>
-        </Box>
+            <MenuIcon />
+          </IconButton>
+        </Hidden>
       </Toolbar>
+      <Drawer
+        anchor="right"
+        open={drawerOpen}
+        onClose={handleDrawerToggle}
+        sx={{ width: 250 }}
+      >
+        <Box
+          sx={{ width: 250 }}
+          role="presentation"
+          onClick={handleDrawerToggle}
+          onKeyDown={handleDrawerToggle}
+        >
+          <List>
+            <CustomListItem button component="a" href="#home">
+              <ListItemText primary="Home" />
+            </CustomListItem>
+            <CustomListItem button component="a" href="#about">
+              <ListItemText primary="About" />
+            </CustomListItem>
+            <CustomListItem button component="a" href="#contactus">
+              <ListItemText primary="Contact Us" />
+            </CustomListItem>
+          </List>
+        </Box>
+      </Drawer>
     </AppBar>
   );
 };

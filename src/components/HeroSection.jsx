@@ -65,16 +65,28 @@ const HeroSection = () => {
             variant="body1"
             component="div"
             sx={{
-              mb: 4,
+              mb: 2,
               fontSize: "20px",
               lineHeight: 1.5,
               fontFamily: "DM Sans Bold",
               color: "#F0F0F2",
             }}
           >
-            IM3 is the Web3 Evolution of Real-Time Cloud. Revolutionizing the
-            creation and expansion of voice, video applications, and
-            Conversational AI.
+            IM3 is the Web3 Evolution of Real-Time Cloud.
+          </Typography>
+          <Typography
+            variant="body1"
+            component="div"
+            sx={{
+              mb: 4,
+              fontSize: "20px",
+              lineHeight: 1.5,
+              fontFamily: "DMSans-Light",
+              color: "#F0F0F2",
+            }}
+          >
+            Revolutionizing the creation and expansion of voice, video
+            applications, and Conversational AI.
           </Typography>
           <Box sx={{ display: "flex", justifyContent: "center", gap: 2 }}>
             <Button
@@ -82,7 +94,7 @@ const HeroSection = () => {
               endIcon={<MeetIcon />}
               sx={{
                 color: "white",
-                bgcolor: "#BF3F34",
+                bgcolor: "#DB4B0C",
                 borderRadius: "25px",
                 padding: "10px 24px",
                 fontFamily: "DM Sans",

@@ -45,3 +45,10 @@ code {
   font-weight: normal;
   font-style: normal;
 }
+
+@font-face {
+  font-family: 'DMSans-Light';
+  src: url('./components/assets/font/DMSans_36pt-Light.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}

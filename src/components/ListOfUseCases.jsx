@@ -133,7 +133,7 @@ const ListOfUseCases = () => (
               borderRadius: "16px",
               display: "flex",
               flexDirection: "column",
-              minHeight: 250,
+              minHeight: 260,
               flex: 1,
               backgroundColor: "rgba(253, 253, 253, 0.1)",
             }}
@@ -153,7 +153,7 @@ const ListOfUseCases = () => (
               {useCase.items.map((item, idx) => (
                 <ListItem key={idx} sx={{ py: 0 }}>
                   <ListItemIcon sx={{ minWidth: 24 }}>
-                    <CircleIcon sx={{ color: "#F5F5F5", fontSize: 5 }} />
+                    <CircleIcon sx={{ color: "#F5F5F5", fontSize: 10 }} />
                   </ListItemIcon>
                   <Typography variant="body2">{item}</Typography>
                 </ListItem>
