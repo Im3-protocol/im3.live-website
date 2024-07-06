@@ -1,11 +1,13 @@
-import React from "react";
+import React, { forwardRef } from "react";
 import Box from "@mui/material/Box";
 import Typography from "@mui/material/Typography";
 import { Grid } from "@mui/material";
 import IM3Image from "./assets/images/IM3.png";
-import bulletIcon from "./assets/images/BulletIcon.png";
-const IntroPart = () => (
+import bulletIcon from "./assets/images/BulletIcon.png"; // Ensure this path is correct
+
+const IntroPart = forwardRef((props, ref) => (
   <Box
+    ref={ref}
     sx={{
       bgcolor: "transparent",
       color: "#fff",
@@ -61,8 +63,36 @@ const IntroPart = () => (
             {[
               "The Web3 community and decentralized maxis currently do not have a public, secure, and permissionless solution for real-time communication. It's time to change that.",
               "As we approach an AI-driven future, the web is expected to shift from text to voice and video applications. A secure, open, and permissionless protocol will be crucial for a better internet and a free world.",
-              "By 2032, the global live streaming market is projected to be valued at USD 256.56 billion. Now is an opportune time for the crypto and Web3 community to attack this market.",
-              "Security and data privacy are critical in communications, and we are cognizant of the security issues associated with closed platforms controlled by Big Brothers.",
+              <Typography component="span" key="market-value">
+                By 2032, the global live streaming market is projected to be
+                valued at{" "}
+                <Typography
+                  component="a"
+                  href="https://www.custommarketinsights.com/report/live-streaming-market/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  sx={{ fontWeight: "bold", color: "white" }}
+                >
+                  USD 256.56 billion
+                </Typography>
+                .
+              </Typography>,
+              "Now is an opportune time for the crypto and Web3 community to attack this market.",
+              <Typography component="span" key="big-brother">
+                Security and data privacy are critical in communications, and we
+                are cognizant of the security issues associated with closed
+                platforms controlled by{" "}
+                <Typography
+                  component="a"
+                  href="https://en.wikipedia.org/wiki/Big_Brother_(Nineteen_Eighty-Four)"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  sx={{ fontWeight: "bold", color: "white" }}
+                >
+                  Big Brothers
+                </Typography>
+                .
+              </Typography>,
               "Advancements in 5G internet and hardware and software, in accordance with Moore's Law, enable the public to perform many functions that, until now, only well-resourced companies could manage.",
             ].map((text, index) => (
               <div
@@ -82,7 +112,7 @@ const IntroPart = () => (
                     alignSelf: "flex-start",
                   }}
                 />
-                <Typography component="span">{text}</Typography>
+                {text}
               </div>
             ))}
           </Box>
@@ -90,6 +120,6 @@ const IntroPart = () => (
       </Grid>
     </Grid>
   </Box>
-);
+));
 
 export default IntroPart;

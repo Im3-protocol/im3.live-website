@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useRef } from "react";
 import Navbar from "./components/Navbar";
 import HeroSection from "./components/HeroSection";
 import IntroPart from "./components/IntroPart";
@@ -10,6 +10,9 @@ import Background from "./components/assets/images/background.png";
 import Slider from "./components/Slider";
 
 const App = () => {
+  const introPartRef = useRef(null);
+  const footerRef = useRef(null); // Create a ref for the Footer
+
   return (
     <Box
       sx={{
@@ -17,26 +20,23 @@ const App = () => {
         backgroundColor: "#01001E",
         color: "white",
         backgroundImage: `url(${Background})`,
-        backgroundSize: "fixed",
+        backgroundSize: "cover",
         backgroundPosition: "center",
         backgroundRepeat: "no-repeat",
         zIndex: 1,
       }}
     >
       <Box sx={{ position: "relative", zIndex: 2 }}>
-        {" "}
-        <Navbar />
+        <Navbar scrollToRef={{ intro: introPartRef, footer: footerRef }} />
         <HeroSection />
         <Slider />
-        <IntroPart />
+        <IntroPart ref={introPartRef} />
         <ListOfUseCases />
         <Roadmap />
-        <Footer />
+        <Footer ref={footerRef} />
       </Box>
     </Box>
   );
 };
 
 export default App;
-
-<box></box>;

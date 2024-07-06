@@ -18,7 +18,7 @@ import "swiper/css/navigation";
 import "swiper/css/pagination";
 import "swiper/css/autoplay";
 
-import { Navigation, Pagination, Autoplay } from "swiper/modules";
+import { Navigation, Pagination } from "swiper/modules";
 
 const features = [
   {
@@ -69,7 +69,7 @@ const Slider = () => {
   return (
     <Box sx={styles.sliderContainer}>
       <Swiper
-        spaceBetween={2}
+        spaceBetween={1}
         slidesPerView={3}
         navigation
         // pagination={{ clickable: true }}
@@ -77,20 +77,20 @@ const Slider = () => {
         breakpoints={{
           640: {
             slidesPerView: 1,
-            spaceBetween: 10,
+            // spaceBetween: 10,
           },
           768: {
             slidesPerView: 2,
-            spaceBetween: 10,
+            // spaceBetween: 10,
           },
           1024: {
             slidesPerView: 3,
-            spaceBetween: 10,
+            // spaceBetween: 10,
           },
         }}
         onSlideChange={() => console.log("slide change")}
         onSwiper={(swiper) => console.log(swiper)}
-        modules={[Navigation, Pagination, Autoplay]}
+        modules={[Navigation, Pagination]}
         style={styles.swiper}
       >
         {features.map((feature, index) => (
@@ -116,7 +116,11 @@ const styles = {
     "& .swiper-button-next, & .swiper-button-prev": {
       color: "#fff",
       top: "50%",
-      fontSize: "18px",
+      transform: "translateY(-50%)", // Ensures vertical centering
+      // fontSize: "8px", // Adjust font size as needed
+      width: "0.5rem", // Smaller width
+      height: "1rem", // Smaller height
+      backgroundSize: "20px 20px", // Ensure the icon fits the new size
       zIndex: 1,
     },
     "& .swiper-pagination-bullet": {

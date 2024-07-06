@@ -2,7 +2,6 @@ import React, { useState } from "react";
 import AppBar from "@mui/material/AppBar";
 import Toolbar from "@mui/material/Toolbar";
 import Box from "@mui/material/Box";
-import Link from "@mui/material/Link";
 import Button from "@mui/material/Button";
 import IconButton from "@mui/material/IconButton";
 import MenuIcon from "@mui/icons-material/Menu";
@@ -17,7 +16,7 @@ const CustomButton = styled(Button)(({ theme }) => ({
   fontSize: "16px",
   marginRight: theme.spacing(2),
   position: "relative",
-  textTransform: "none", // Added this line
+  textTransform: "none",
   "&:hover": {
     backgroundColor: "transparent",
     color: "white",
@@ -39,30 +38,16 @@ const CustomButton = styled(Button)(({ theme }) => ({
   },
 }));
 
-const CustomListItem = styled(ListItem)(({ theme }) => ({
-  textTransform: "none", // Added this line
-}));
-
-const Navbar = () => {
+const Navbar = ({ scrollToRef }) => {
   const [drawerOpen, setDrawerOpen] = useState(false);
 
   const handleDrawerToggle = () => {
     setDrawerOpen(!drawerOpen);
   };
 
-  const menuItems = (
-    <>
-      <CustomButton href="#home" color="inherit">
-        Home
-      </CustomButton>
-      <CustomButton href="#about" color="inherit">
-        About
-      </CustomButton>
-      <CustomButton href="#contactus" color="inherit">
-        Contact Us
-      </CustomButton>
-    </>
-  );
+  const handleScrollToSection = (ref) => {
+    ref.current.scrollIntoView({ behavior: "smooth" });
+  };
 
   return (
     <AppBar
@@ -83,12 +68,26 @@ const Navbar = () => {
             margin: "30px",
           }}
         >
-          <Link href="/">
-            <img src="/logo1.svg" alt="Logo" />
-          </Link>
+          <img src="/logo1.svg" alt="Logo" />
         </Box>
         <Hidden mdDown>
-          <Box>{menuItems}</Box>
+          <Box>
+            <CustomButton href="#home" color="inherit">
+              Home
+            </CustomButton>
+            <CustomButton
+              onClick={() => handleScrollToSection(scrollToRef.intro)}
+              color="inherit"
+            >
+              About
+            </CustomButton>
+            <CustomButton
+              href="mailto:IM3.Live.contact@gmail.com"
+              color="inherit"
+            >
+              Contact Us
+            </CustomButton>
+          </Box>
         </Hidden>
         <Hidden mdUp>
           <IconButton
@@ -114,15 +113,21 @@ const Navbar = () => {
           onKeyDown={handleDrawerToggle}
         >
           <List>
-            <CustomListItem button component="a" href="#home">
+            <ListItem button component="a" href="#home">
               <ListItemText primary="Home" />
-            </CustomListItem>
-            <CustomListItem button component="a" href="#about">
+            </ListItem>
+            <ListItem
+              button
+              onClick={() => handleScrollToSection(scrollToRef.intro)}
+            >
               <ListItemText primary="About" />
-            </CustomListItem>
-            <CustomListItem button component="a" href="#contactus">
+            </ListItem>
+            <ListItem
+              button
+              onClick={() => handleScrollToSection(scrollToRef.footer)}
+            >
               <ListItemText primary="Contact Us" />
-            </CustomListItem>
+            </ListItem>
           </List>
         </Box>
       </Drawer>

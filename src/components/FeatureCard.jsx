@@ -26,8 +26,8 @@ const styles = {
   card: {
     display: "flex",
     flexDirection: "column",
-    width: 340,
-    height: 420,
+    width: 360,
+    height: 400,
     backgroundColor: "rgba(255, 246, 246, 0.1)",
     backdropFilter: "blur(100px)",
     border: "1px solid rgba(240, 240, 242, 0.5)",
