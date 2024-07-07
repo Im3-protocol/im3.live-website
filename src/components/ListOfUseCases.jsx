@@ -6,9 +6,10 @@ import {
   List,
   ListItem,
   ListItemIcon,
+  useTheme,
+  useMediaQuery,
 } from "@mui/material";
 import CircleIcon from "@mui/icons-material/Circle";
-
 import liveStreamingIcon from "./assets/images/icons/Live Streaming and Events.png";
 import educationIcon from "./assets/images/icons/Education and E-Learning.png";
 import healthcareIcon from "./assets/images/icons/Healthcare and Wellness.png";
@@ -98,7 +99,7 @@ const useCasesData = [
     ],
   },
   {
-    title: "Decentralized/Conversational AI and News",
+    title: "Decentralized/ Conversational AI and News",
     icon: aiNewsIcon,
     items: [
       "Decentralized/Conversational AI",
@@ -112,58 +113,64 @@ const useCasesData = [
   },
 ];
 
-const ListOfUseCases = () => (
-  <Box
-    sx={{
-      bgcolor: "transparent",
-      color: "white",
-      p: 4,
-      maxWidth: 1200,
-      margin: "auto",
-      borderRadius: 2,
-    }}
-  >
-    <Grid container spacing={2}>
-      {useCasesData.map((useCase, index) => (
-        <Grid item xs={12} sm={6} md={4} key={index} sx={{ display: "flex" }}>
-          <Box
-            sx={{
-              p: 2,
-              border: "1px solid white",
-              borderRadius: "16px",
-              display: "flex",
-              flexDirection: "column",
-              minHeight: 260,
-              flex: 1,
-              backgroundColor: "rgba(253, 253, 253, 0.1)",
-            }}
-          >
-            <Box sx={{ display: "flex", alignItems: "center", mb: 2 }}>
-              <Box
-                component="img"
-                src={useCase.icon}
-                alt={`${useCase.title} icon`}
-                sx={{ width: 48, height: 48, mr: 2 }}
-              />
-              <Typography variant="h6" sx={{ fontFamily: "DM Sans" }}>
-                {useCase.title}
-              </Typography>
+const ListOfUseCases = () => {
+  const theme = useTheme();
+  const isMobile = useMediaQuery(theme.breakpoints.down("sm"));
+
+  return (
+    <Box
+      sx={{
+        bgcolor: "transparent",
+        color: "white",
+        p: 4,
+        maxWidth: 1200,
+        margin: "auto",
+        borderRadius: 2,
+      }}
+    >
+      <Grid container spacing={2}>
+        {useCasesData.map((useCase, index) => (
+          <Grid item xs={12} sm={6} md={4} key={index} sx={{ display: "flex" }}>
+            <Box
+              sx={{
+                p: 2,
+                border: "1px solid white",
+                borderRadius: "16px",
+                display: "flex",
+                flexDirection: "column",
+                minHeight: 260,
+                flex: 1,
+                backgroundColor: "rgba(253, 253, 253, 0.1)",
+                width: "100%", // Ensures the box takes the full width of its grid item
+              }}
+            >
+              <Box sx={{ display: "flex", alignItems: "center", mb: 2 }}>
+                <Box
+                  component="img"
+                  src={useCase.icon}
+                  alt={`${useCase.title} icon`}
+                  sx={{ width: 48, height: 48, mr: 2 }}
+                />
+                <Typography variant="h6" sx={{ fontFamily: "DM Sans" }}>
+                  {useCase.title}
+                </Typography>
+              </Box>
+              <List sx={{ flex: 1, overflow: "auto", py: 0 }}>
+                {useCase.items.map((item, idx) => (
+                  <ListItem key={idx} sx={{ py: 0 }}>
+                    <ListItemIcon sx={{ minWidth: 24 }}>
+                      <CircleIcon sx={{ color: "#F5F5F5", fontSize: 10 }} />
+                    </ListItemIcon>
+                    <Typography variant="body2">{item}</Typography>
+                  </ListItem>
+                ))}
+              </List>
             </Box>
-            <List sx={{ flex: 1, overflow: "auto", py: 0 }}>
-              {useCase.items.map((item, idx) => (
-                <ListItem key={idx} sx={{ py: 0 }}>
-                  <ListItemIcon sx={{ minWidth: 24 }}>
-                    <CircleIcon sx={{ color: "#F5F5F5", fontSize: 10 }} />
-                  </ListItemIcon>
-                  <Typography variant="body2">{item}</Typography>
-                </ListItem>
-              ))}
-            </List>
-          </Box>
-        </Grid>
-      ))}
-    </Grid>
-  </Box>
-);
+          </Grid>
+        ))}
+      </Grid>
+    </Box>
+  );
+};
 
 export default ListOfUseCases;
