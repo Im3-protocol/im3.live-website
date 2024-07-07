@@ -2,7 +2,7 @@ import React from "react";
 import Box from "@mui/material/Box";
 import Typography from "@mui/material/Typography";
 import Grid from "@mui/material/Grid";
-import { styled } from "@mui/system";
+import { styled, useTheme, useMediaQuery } from "@mui/system";
 
 const roadmapItems = [
   { title: "IM3 Node MVP", status: "DONE" },
@@ -29,44 +29,40 @@ const ColorCircle = styled("span")(({ theme, status }) => ({
     status === "DONE" ? "green" : status === "IN PROGRESS" ? "orange" : "grey",
 }));
 
-const Roadmap = () => (
-  <Box
-    sx={{
-      bgcolor: "transparent",
-      color: "#fff",
-      p: 2,
-      borderRadius: 1,
-      margin: "80px",
-    }}
-  >
-    <Typography variant="h4" sx={{ mb: 2, fontFamily: "PorterFT" }}>
-      Road Map
-    </Typography>
-    <Grid container spacing={2}>
-      <Grid item xs={12} md={6}>
-        {roadmapItems.slice(0, 5).map((item, index) => (
-          <Box
-            key={index}
-            sx={{ display: "flex", alignItems: "center", mb: 1 }}
-          >
-            <ColorCircle status={item.status} />
-            <Typography sx={{ fontFamily: "DMSans-Medium" }}>
-              {item.title}
-            </Typography>
-          </Box>
-        ))}
-      </Grid>
-      <Grid item xs={12} md={6}>
-        {roadmapItems.slice(5, 9).map((item, index) => (
-          <Box
-            key={index}
-            sx={{ display: "flex", alignItems: "center", mb: 1 }}
-          >
-            <ColorCircle status={item.status} />
-            <Typography sx={{ fontFamily: "DMSans-Medium" }}>
-              {item.title}
-            </Typography>
-          </Box>
+const Roadmap = () => {
+  const theme = useTheme();
+  const isSmallScreen = useMediaQuery(theme.breakpoints.down("sm"));
+
+  return (
+    <Box
+      sx={{
+        bgcolor: "transparent",
+        color: "#fff",
+        p: 2,
+        borderRadius: 1,
+        margin: isSmallScreen ? 2 : 8,
+      }}
+    >
+      <Typography
+        variant="h4"
+        sx={{
+          mb: 2,
+          fontFamily: "PorterFT",
+          textAlign: isSmallScreen ? "center" : "left",
+        }}
+      >
+        Road Map
+      </Typography>
+      <Grid container spacing={2}>
+        {roadmapItems.map((item, index) => (
+          <Grid item xs={12} sm={6} md={6} key={index}>
+            <Box sx={{ display: "flex", alignItems: "center", mb: 1 }}>
+              <ColorCircle status={item.status} />
+              <Typography sx={{ fontFamily: "DMSans-Medium" }}>
+                {item.title}
+              </Typography>
+            </Box>
+          </Grid>
         ))}
       </Grid>
       <Grid item xs={12}>
@@ -76,12 +72,13 @@ const Roadmap = () => (
             justifyContent: "flex-end",
             alignItems: "center",
             mt: 2,
+            flexWrap: "wrap",
           }}
         >
           {["NOT STARTED", "DONE", "IN PROGRESS"].map((status, index) => (
             <Box
               key={index}
-              sx={{ display: "flex", alignItems: "center", ml: 2 }}
+              sx={{ display: "flex", alignItems: "center", ml: 2, mb: 1 }}
             >
               <ColorCircle status={status} />
               <Typography sx={{ fontFamily: "DMSans-Medium" }}>
@@ -91,8 +88,8 @@ const Roadmap = () => (
           ))}
         </Box>
       </Grid>
-    </Grid>
-  </Box>
-);
+    </Box>
+  );
+};
 
 export default Roadmap;
