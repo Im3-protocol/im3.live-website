@@ -24,11 +24,20 @@ const IntroPart = forwardRef((props, ref) => (
   >
     <Grid container spacing={2} sx={{ width: "100%", maxWidth: 960 }}>
       <Grid item xs={12} md={6}>
-        <img
-          src={IM3Image}
-          alt="IM3 Network"
-          style={{ width: "100%", height: "auto", maxWidth: "300px" }}
-        />
+        <Box
+          sx={{
+            display: "flex",
+            justifyContent: "center", // Centers horizontally
+            alignItems: "center", // Centers vertically
+            height: "100%", // Takes full height of the grid item
+          }}
+        >
+          <img
+            src={IM3Image}
+            alt="IM3 Network"
+            style={{ width: "100%", height: "auto", maxWidth: "300px" }}
+          />
+        </Box>
       </Grid>
       <Grid item xs={12} md={6}>
         <Typography variant="h4" gutterBottom sx={{ fontFamily: "PorterFT" }}>
