@@ -2,11 +2,14 @@ import React from "react";
 import Box from "@mui/material/Box";
 import Typography from "@mui/material/Typography";
 import Button from "@mui/material/Button";
+import { useTheme } from "@mui/material/styles";
 import heroBackground from "./assets/images/Hero_Background.png";
 import { ReactComponent as JoinIcon } from "./assets/images/JoinIcon.svg";
 import { ReactComponent as MeetIcon } from "./assets/images/MeetIcon.svg";
 
 const HeroSection = () => {
+  const theme = useTheme();
+
   return (
     <Box
       sx={{
@@ -17,9 +20,14 @@ const HeroSection = () => {
         width: "100vw",
         margin: 0,
         padding: 0,
-        bgcolor: "#01001E",
-        position: "relative",
         bgcolor: "transparent",
+        position: "relative",
+        [theme.breakpoints.down("md")]: {
+          height: "50vh",
+        },
+        [theme.breakpoints.down("sm")]: {
+          height: "30vh",
+        },
       }}
     >
       <Box
@@ -34,6 +42,14 @@ const HeroSection = () => {
           backgroundSize: "cover",
           backgroundPosition: "center",
           backgroundRepeat: "no-repeat",
+          [theme.breakpoints.down("md")]: {
+            height: "400px",
+            width: "600px",
+          },
+          [theme.breakpoints.down("sm")]: {
+            height: "200px",
+            width: "300px",
+          },
         }}
       >
         <Box
@@ -45,6 +61,9 @@ const HeroSection = () => {
             width: "802px",
             textAlign: "center",
             color: "white",
+            [theme.breakpoints.down("md")]: {
+              width: "100%",
+            },
           }}
         >
           <Typography
@@ -55,6 +74,12 @@ const HeroSection = () => {
               fontSize: "48px",
               fontFamily: "PorterFT",
               color: "#F0F0F2",
+              [theme.breakpoints.down("md")]: {
+                fontSize: "34px",
+              },
+              [theme.breakpoints.down("sm")]: {
+                fontSize: "24px",
+              },
             }}
           >
             Decentralized and Public
@@ -70,23 +95,15 @@ const HeroSection = () => {
               lineHeight: 1.5,
               fontFamily: "DM Sans Bold",
               color: "#F0F0F2",
+              [theme.breakpoints.down("md")]: {
+                fontSize: "16px",
+              },
+              [theme.breakpoints.down("sm")]: {
+                fontSize: "12px",
+              },
             }}
           >
             IM3 is the Web3 Evolution of Real-Time Cloud
-          </Typography>
-          <Typography
-            variant="body1"
-            component="div"
-            sx={{
-              mb: 4,
-              fontSize: "20px",
-              lineHeight: 1.5,
-              fontFamily: "DMSans-Light",
-              color: "#F0F0F2",
-            }}
-          >
-            Revolutionizing the creation and expansion of voice, video
-            applications, and Conversational AI
           </Typography>
           <Box sx={{ display: "flex", justifyContent: "center", gap: 2 }}>
             <Button
@@ -99,6 +116,13 @@ const HeroSection = () => {
                 padding: "10px 24px",
                 fontFamily: "DM Sans",
                 textTransform: "none",
+                "&:hover": {
+                  bgcolor: "white", // White background on hover
+                  color: "#B81843", // Red text on hover
+                },
+                [theme.breakpoints.down("sm")]: {
+                  padding: "6px 12px",
+                },
               }}
             >
               Try IM3 Meet
@@ -114,6 +138,14 @@ const HeroSection = () => {
                 padding: "10px 24px",
                 fontFamily: "DM Sans",
                 textTransform: "none",
+                "&:hover": {
+                  bgcolor: "black", // Red background on hover
+                  color: "white", // White text on hover
+                  border: "1px solid black", // Red border on hover
+                },
+                [theme.breakpoints.down("sm")]: {
+                  padding: "6px 12px",
+                },
               }}
             >
               Join US
