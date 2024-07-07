@@ -3,7 +3,7 @@ import { Box, Typography, IconButton, Link } from "@mui/material";
 import YouTubeIcon from "@mui/icons-material/YouTube";
 import GitHubIcon from "@mui/icons-material/GitHub";
 import XIcon from "./assets/images/X.svg";
-import TelegramIcon from "./assets/images/TelegramIcon.svg";
+// import TelegramIcon from "./assets/images/TelegramIcon.svg";
 import MirrorIcon from "./assets/images/Mirror.svg";
 
 const Footer = React.forwardRef((props, ref) => (
