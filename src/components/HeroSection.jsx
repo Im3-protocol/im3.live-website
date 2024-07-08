@@ -107,6 +107,8 @@ const HeroSection = () => {
           </Typography>
           <Box sx={{ display: "flex", justifyContent: "center", gap: 2 }}>
             <Button
+              component="a"
+              href="https://meet.im3.live"
               variant="contained"
               endIcon={<MeetIcon />}
               sx={{
@@ -117,8 +119,8 @@ const HeroSection = () => {
                 fontFamily: "DM Sans",
                 textTransform: "none",
                 "&:hover": {
-                  bgcolor: "white", // White background on hover
-                  color: "#B81843", // Red text on hover
+                  bgcolor: "white",
+                  color: "#B81843",
                 },
                 [theme.breakpoints.down("sm")]: {
                   padding: "6px 12px",
@@ -128,6 +130,8 @@ const HeroSection = () => {
               Try IM3 Meet
             </Button>
             <Button
+              component="a"
+              href="https://x.com/IM3_live"
               variant="outlined"
               endIcon={<JoinIcon />}
               sx={{
@@ -139,9 +143,9 @@ const HeroSection = () => {
                 fontFamily: "DM Sans",
                 textTransform: "none",
                 "&:hover": {
-                  bgcolor: "black", // Red background on hover
-                  color: "white", // White text on hover
-                  border: "1px solid black", // Red border on hover
+                  bgcolor: "black",
+                  color: "white",
+                  border: "1px solid black",
                 },
                 [theme.breakpoints.down("sm")]: {
                   padding: "6px 12px",

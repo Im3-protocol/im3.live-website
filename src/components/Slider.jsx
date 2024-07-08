@@ -1,5 +1,7 @@
-import React from "react";
-import { Box } from "@mui/material";
+import React, { useState, useEffect } from "react";
+import { Box, IconButton, useMediaQuery } from "@mui/material";
+import ArrowBackIosIcon from "@mui/icons-material/ArrowBackIos";
+import ArrowForwardIosIcon from "@mui/icons-material/ArrowForwardIos";
 import FeatureCard from "./FeatureCard";
 
 // Importing images
@@ -10,15 +12,6 @@ import FastScalable from "./assets/images/cards/Fast & scalable.png";
 import TokenBasedEconomy from "./assets/images/cards/Token-based Economy.png";
 import ProgrammableSpacesApps from "./assets/images/cards/Programmable Spaces & Apps.png";
 import CompatibleFutureWeb from "./assets/images/cards/Compatible with the Future Web.png";
-
-import { Swiper, SwiperSlide } from "swiper/react";
-
-import "swiper/css";
-import "swiper/css/navigation";
-import "swiper/css/pagination";
-import "swiper/css/autoplay";
-
-import { Navigation, Pagination } from "swiper/modules";
 
 const features = [
   {
@@ -40,7 +33,7 @@ const features = [
     imageUrl: Web3Friendly,
   },
   {
-    title: "Fast & scalable",
+    title: "Fast & Scalable",
     description:
       "The power of a Decentralized Network (dCDN) surpasses that of centralized and cloud alternatives.",
     imageUrl: FastScalable,
@@ -65,81 +58,112 @@ const features = [
   },
 ];
 
-const Slider = () => {
+const FeatureSlider = () => {
+  const [currentIndex, setCurrentIndex] = useState(0);
+  const isMobile = useMediaQuery("(max-width:600px)");
+  const isTablet = useMediaQuery("(max-width:900px)");
+
+  const slidesToShow = isMobile ? 1 : isTablet ? 2 : 3;
+
+  const handleNext = () => {
+    setCurrentIndex((prevIndex) =>
+      Math.min(prevIndex + 1, features.length - slidesToShow)
+    );
+  };
+
+  const handlePrev = () => {
+    setCurrentIndex((prevIndex) => Math.max(prevIndex - 1, 0));
+  };
+
+  const isPrevDisabled = currentIndex === 0;
+  const isNextDisabled = currentIndex >= features.length - slidesToShow;
+
+  useEffect(() => {
+    const autoplay = setInterval(() => {
+      handleNext();
+    }, 3000); // Change slide every 3 seconds
+
+    return () => clearInterval(autoplay);
+  }, [currentIndex, slidesToShow]);
+
   return (
-    <Box sx={styles.sliderContainer}>
-      <Swiper
-        spaceBetween={1}
-        slidesPerView={3}
-        navigation
-        // pagination={{ clickable: true }}
-        autoplay={{ delay: 2500, disableOnInteraction: false }}
-        breakpoints={{
-          640: {
-            slidesPerView: 1,
-            // spaceBetween: 10,
-          },
-          768: {
-            slidesPerView: 2,
-            // spaceBetween: 10,
-          },
-          1024: {
-            slidesPerView: 3,
-            // spaceBetween: 10,
-          },
+    <Box
+      sx={{
+        position: "relative",
+        width: "90%",
+        overflow: "hidden",
+        height: "60vh",
+        display: "flex",
+        alignItems: "center",
+        justifyContent: "center",
+        margin: "60px auto",
+      }}
+    >
+      <IconButton
+        onClick={handlePrev}
+        sx={{
+          position: "absolute",
+          left: "5px", // Adjusted spacing
+          transform: "translateY(-50%)",
+          top: "50%",
+          zIndex: 10,
+          color: isPrevDisabled ? "grey" : "white",
+          opacity: isPrevDisabled ? 0.5 : 1,
+          cursor: isPrevDisabled ? "not-allowed" : "pointer",
+          // "&:hover": {
+          //   backgroundColor: isPrevDisabled
+          //     ? "transparent"
+          //     : "rgba(255, 255, 255, 0.3)",
+          // },
         }}
-        onSlideChange={() => console.log("slide change")}
-        onSwiper={(swiper) => console.log(swiper)}
-        modules={[Navigation, Pagination]}
-        style={styles.swiper}
+        aria-label="Previous"
+      >
+        <ArrowBackIosIcon />
+      </IconButton>
+      <Box
+        display="flex"
+        sx={{
+          width: "100%",
+          transform: `translateX(-${currentIndex * (100 / slidesToShow)}%)`,
+          transition: "transform 0.3s ease-in-out",
+        }}
       >
         {features.map((feature, index) => (
-          <SwiperSlide key={index} style={styles.swiperSlide}>
-            <FeatureCard
-              imageUrl={feature.imageUrl}
-              title={feature.title}
-              description={feature.description}
-            />
-          </SwiperSlide>
+          <Box
+            key={index}
+            sx={{
+              flex: `0 0 ${100 / slidesToShow}%`,
+              p: 5,
+              boxSizing: "border-box",
+            }}
+          >
+            <FeatureCard feature={feature} />
+          </Box>
         ))}
-      </Swiper>
+      </Box>
+      <IconButton
+        onClick={handleNext}
+        sx={{
+          position: "absolute",
+          right: "5px", // Adjusted spacing
+          transform: "translateY(-50%)",
+          top: "50%",
+          zIndex: 10,
+          color: isNextDisabled ? "grey" : "white",
+          opacity: isNextDisabled ? 0.5 : 1,
+          cursor: isNextDisabled ? "not-allowed" : "pointer",
+          // "&:hover": {
+          //   backgroundColor: isNextDisabled
+          //     ? "transparent"
+          //     : "rgba(255, 255, 255, 0.3)",
+          // },
+        }}
+        aria-label="Next"
+      >
+        <ArrowForwardIosIcon />
+      </IconButton>
     </Box>
   );
 };
 
-const styles = {
-  sliderContainer: {
-    width: "90%",
-    height: "60vh",
-    margin: "60px auto",
-    position: "relative",
-    "& .swiper-button-next, & .swiper-button-prev": {
-      color: "#fff",
-      top: "50%",
-      transform: "translateY(-50%)", // Ensures vertical centering
-      // fontSize: "8px", // Adjust font size as needed
-      width: "0.5rem", // Smaller width
-      height: "1rem", // Smaller height
-      backgroundSize: "20px 20px", // Ensure the icon fits the new size
-      zIndex: 1,
-    },
-    "& .swiper-pagination-bullet": {
-      backgroundColor: "transparent",
-      border: "1px solid white",
-    },
-    "& .swiper-pagination": {
-      bottom: "20px",
-    },
-  },
-  swiper: {
-    width: "100%",
-    height: "100%",
-  },
-  swiperSlide: {
-    display: "flex",
-    justifyContent: "center",
-    padding: "0",
-  },
-};
-
-export default Slider;
+export default FeatureSlider;

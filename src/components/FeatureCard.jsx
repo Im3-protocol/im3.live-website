@@ -1,68 +1,64 @@
 import React from "react";
-import { Card, CardContent, CardMedia, Typography } from "@mui/material";
+import { Card, CardMedia, CardContent, Typography, Box } from "@mui/material";
 
-const FeatureCard = ({ imageUrl, title, description }) => {
+const FeatureCard = ({ feature }) => {
   return (
-    <Card sx={styles.card}>
+    <Card
+      sx={{
+        width: 340, // width of the card
+        height: 420, // fixed height of the card
+        borderRadius: "20px",
+        overflow: "hidden",
+        position: "relative",
+        backgroundColor: "rgba(255, 246, 246, 0.1)",
+        backdropFilter: "blur(100px)",
+        border: "1px solid rgba(255, 246, 246, 0.1)",
+        display: "flex",
+        flexDirection: "column",
+        boxSizing: "border-box",
+      }}
+    >
       <CardMedia
         component="img"
-        image={imageUrl}
-        alt={title}
-        sx={styles.image}
+        image={feature.imageUrl}
+        alt={feature.title}
+        sx={{
+          objectFit: "cover",
+          paddingTop: "10px",
+          flexShrink: 0,
+        }}
       />
-      <CardContent sx={styles.textContainer}>
-        <Typography variant="h6" sx={styles.title}>
-          {title}
+      <CardContent
+        sx={{
+          color: "white",
+          padding: "0 24px 24px 24px",
+          textAlign: "left",
+          boxSizing: "border-box",
+          flexGrow: 1, // allow CardContent to grow and fill space
+        }}
+      >
+        <Typography
+          variant="h7"
+          component="div"
+          sx={{
+            fontSize: "18px",
+            // fontSize: "14px",
+            fontFamily: "DM Sans Bold",
+            // fontFamily: "PorterFT",
+            paddingBottom: "8px",
+          }} // space between title and description
+        >
+          {feature.title}
         </Typography>
-        <Typography variant="body2" sx={styles.description}>
-          {description}
+        <Typography
+          variant="body2"
+          sx={{ fontFamily: "DM Sans", color: "rgba(255, 246, 246, 0.6)" }}
+        >
+          {feature.description}
         </Typography>
       </CardContent>
     </Card>
   );
-};
-
-const styles = {
-  card: {
-    display: "flex",
-    flexDirection: "column",
-    width: 360,
-    height: 400,
-    backgroundColor: "rgba(255, 246, 246, 0.1)",
-    backdropFilter: "blur(100px)",
-    border: "1px solid rgba(240, 240, 242, 0.5)",
-    borderRadius: 3,
-    margin: "auto",
-    padding: 0,
-    boxSizing: "border-box",
-    mt: "10px",
-  },
-  image: {
-    width: "100%",
-    maxHeight: 160,
-    objectFit: "cover",
-    borderRadius: 2,
-    marginBottom: 0,
-    marginTop: "20px",
-  },
-  textContainer: {
-    display: "flex",
-    flexDirection: "column",
-    justifyContent: "flex-start",
-    alignItems: "flex-start",
-    padding: "35px",
-  },
-  title: {
-    fontFamily: "DM Sans Bold , Arial, sans-serif",
-    fontSize: 18,
-    margin: "5px 0 2px 0",
-    color: "white",
-  },
-  description: {
-    fontFamily: "DM Sans, Arial, sans-serif",
-    margin: "2px 0",
-    color: "white",
-  },
 };
 
 export default FeatureCard;
