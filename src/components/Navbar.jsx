@@ -11,11 +11,12 @@ import {
   ListItemText,
   ListItemIcon,
   Hidden,
+  Typography,
 } from "@mui/material";
 import MenuIcon from "@mui/icons-material/Menu";
-import HomeIcon from "@mui/icons-material/Home"; // Example SVG icon
-import InfoIcon from "@mui/icons-material/Info"; // Example SVG icon
-import ContactMailIcon from "@mui/icons-material/ContactMail"; // Example SVG icon
+import HomeIcon from "@mui/icons-material/Home";
+import InfoIcon from "@mui/icons-material/Info";
+import ContactMailIcon from "@mui/icons-material/ContactMail";
 import { styled } from "@mui/material/styles";
 
 const CustomButton = styled(Button)(({ theme }) => ({
@@ -65,7 +66,13 @@ const Navbar = ({ scrollToRef }) => {
         border: "none",
       }}
     >
-      <Toolbar>
+      <Toolbar
+        sx={{
+          minHeight: { xs: 56, sm: 64 },
+          alignItems: "center",
+          padding: "0 8px",
+        }}
+      >
         <Box
           sx={{
             flexGrow: 1,
@@ -101,6 +108,10 @@ const Navbar = ({ scrollToRef }) => {
             color="inherit"
             aria-label="menu"
             onClick={handleDrawerToggle}
+            sx={{
+              color: "white",
+              opacity: 0.7,
+            }}
           >
             <MenuIcon />
           </IconButton>
@@ -113,8 +124,14 @@ const Navbar = ({ scrollToRef }) => {
         sx={{
           width: 250,
           ".MuiDrawer-paper": {
-            backgroundColor: "rgba(255, 255, 255, 0.5)",
-            backdropFilter: "blur(10px)",
+            backgroundColor: "rgba(255, 255, 255, 0.2)",
+            backdropFilter: "blur(80px)",
+            color: "white",
+            height: "50%",
+            overflowY: "auto",
+            display: "flex",
+            flexDirection: "column",
+            justifyContent: "top",
           },
         }}
       >
@@ -124,30 +141,61 @@ const Navbar = ({ scrollToRef }) => {
           onClick={handleDrawerToggle}
           onKeyDown={handleDrawerToggle}
         >
-          <List>
-            <ListItem button component="a" href="#home">
-              <ListItemIcon>
+          <List sx={{ padding: 0 }}>
+            <ListItem
+              button
+              component="a"
+              href="#home"
+              sx={{ minHeight: 40, padding: "10px 16px" }}
+            >
+              <ListItemIcon sx={{ color: "white", opacity: 0.7, minWidth: 40 }}>
                 <HomeIcon />
               </ListItemIcon>
-              <ListItemText primary="Home" />
+              <ListItemText
+                primary={
+                  <Typography
+                    sx={{ fontFamily: "DM Sans", fontSize: "0.875rem" }}
+                  >
+                    Home
+                  </Typography>
+                }
+              />
             </ListItem>
             <ListItem
               button
               onClick={() => handleScrollToSection(scrollToRef.intro)}
+              sx={{ minHeight: 40, padding: "10px 16px" }}
             >
-              <ListItemIcon>
+              <ListItemIcon sx={{ color: "white", opacity: 0.7, minWidth: 40 }}>
                 <InfoIcon />
               </ListItemIcon>
-              <ListItemText primary="About" />
+              <ListItemText
+                primary={
+                  <Typography
+                    sx={{ fontFamily: "DM Sans", fontSize: "0.875rem" }}
+                  >
+                    About
+                  </Typography>
+                }
+              />
             </ListItem>
             <ListItem
               button
               onClick={() => handleScrollToSection(scrollToRef.footer)}
+              sx={{ minHeight: 40, padding: "10px 16px" }}
             >
-              <ListItemIcon>
+              <ListItemIcon sx={{ color: "white", opacity: 0.7, minWidth: 40 }}>
                 <ContactMailIcon />
               </ListItemIcon>
-              <ListItemText primary="Contact Us" />
+              <ListItemText
+                primary={
+                  <Typography
+                    sx={{ fontFamily: "DM Sans", fontSize: "0.875rem" }}
+                  >
+                    Contact Us
+                  </Typography>
+                }
+              />
             </ListItem>
           </List>
         </Box>
