@@ -5,8 +5,8 @@ const FeatureCard = ({ feature }) => {
   return (
     <Card
       sx={{
-        width: 340, // width of the card
-        height: 420, // fixed height of the card
+        width: 330, // width of the card
+        height: 408, // fixed height of the card
         borderRadius: "20px",
         overflow: "hidden",
         position: "relative",
@@ -42,9 +42,7 @@ const FeatureCard = ({ feature }) => {
           component="div"
           sx={{
             fontSize: "18px",
-            // fontSize: "14px",
             fontFamily: "DM Sans Bold",
-            // fontFamily: "PorterFT",
             paddingBottom: "8px",
           }} // space between title and description
         >

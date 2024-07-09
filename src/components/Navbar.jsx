@@ -14,9 +14,9 @@ import {
   Typography,
 } from "@mui/material";
 import MenuIcon from "@mui/icons-material/Menu";
-import HomeIcon from "@mui/icons-material/Home"; // Example SVG icon
-import InfoIcon from "@mui/icons-material/Info"; // Example SVG icon
-import ContactMailIcon from "@mui/icons-material/ContactMail"; // Example SVG icon
+import HomeIcon from "@mui/icons-material/Home";
+import InfoIcon from "@mui/icons-material/Info";
+import { ReactComponent as ContactMailIcon } from "./assets/images/MailIcon.svg"; // Correct way to import SVG as React component
 import { styled } from "@mui/material/styles";
 
 const CustomButton = styled(Button)(({ theme }) => ({
@@ -44,6 +44,18 @@ const CustomButton = styled(Button)(({ theme }) => ({
     transform: "scaleX(1)",
   },
 }));
+
+const SmallIcon = styled("div")({
+  width: "24px",
+  height: "24px",
+  display: "flex",
+  alignItems: "center",
+  justifyContent: "center",
+  "& svg": {
+    width: "100%",
+    height: "100%",
+  },
+});
 
 const Navbar = ({ scrollToRef }) => {
   const [drawerOpen, setDrawerOpen] = useState(false);
@@ -127,8 +139,6 @@ const Navbar = ({ scrollToRef }) => {
             backgroundColor: "rgba(255, 255, 255, 0.2)",
             backdropFilter: "blur(80px)",
             color: "white",
-            // height: "auto",
-            // maxHeight: "70vh",
             overflowY: "auto",
             display: "flex",
             flexDirection: "column",
@@ -187,7 +197,9 @@ const Navbar = ({ scrollToRef }) => {
               sx={{ minHeight: 40, padding: "10px 16px" }}
             >
               <ListItemIcon sx={{ color: "white", opacity: 0.7, minWidth: 40 }}>
-                <ContactMailIcon />
+                <SmallIcon>
+                  <ContactMailIcon />
+                </SmallIcon>
               </ListItemIcon>
               <ListItemText
                 primary={

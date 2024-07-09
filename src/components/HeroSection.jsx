@@ -3,12 +3,14 @@ import Box from "@mui/material/Box";
 import Typography from "@mui/material/Typography";
 import Button from "@mui/material/Button";
 import { useTheme } from "@mui/material/styles";
+import useMediaQuery from "@mui/material/useMediaQuery";
 import heroBackground from "./assets/images/Hero_Background.png";
 import { ReactComponent as JoinIcon } from "./assets/images/JoinIcon.svg";
 import { ReactComponent as MeetIcon } from "./assets/images/MeetIcon.svg";
 
 const HeroSection = () => {
   const theme = useTheme();
+  const isSmallScreen = useMediaQuery(theme.breakpoints.down("sm"));
 
   return (
     <Box
@@ -26,7 +28,7 @@ const HeroSection = () => {
           height: "50vh",
         },
         [theme.breakpoints.down("sm")]: {
-          height: "30vh",
+          height: "50vh",
         },
       }}
     >
@@ -47,8 +49,8 @@ const HeroSection = () => {
             width: "600px",
           },
           [theme.breakpoints.down("sm")]: {
-            height: "200px",
-            width: "300px",
+            height: "300px",
+            width: "100%",
           },
         }}
       >
@@ -105,20 +107,57 @@ const HeroSection = () => {
           >
             IM3 is the Web3 Evolution of Real-Time Cloud
           </Typography>
-          <Typography
-            variant="body1"
-            component="div"
-            sx={{
-              mb: 4,
-              fontSize: "20px",
-              lineHeight: 1.5,
-              fontFamily: "DMSans-Light",
-              color: "#F0F0F2",
-            }}
-          >
-            Revolutionizing the creation and expansion of voice, video
-            applications, and Conversational AI
-          </Typography>
+          {isSmallScreen ? (
+            <>
+              <Typography
+                variant="body1"
+                component="div"
+                sx={{
+                  mb: 0,
+                  fontSize: "16px",
+                  lineHeight: 1.5,
+                  fontFamily: "DMSans-Light",
+                  color: "#F0F0F2",
+                }}
+              >
+                Revolutionizing the creation and expansion of
+              </Typography>
+              <Typography
+                variant="body1"
+                component="div"
+                sx={{
+                  mb: 4,
+                  fontSize: "16px",
+                  lineHeight: 1.5,
+                  fontFamily: "DMSans-Light",
+                  color: "#F0F0F2",
+                }}
+              >
+                voice, video applications, and Conversational AI
+              </Typography>
+            </>
+          ) : (
+            <Typography
+              variant="body1"
+              component="div"
+              sx={{
+                mb: 4,
+                fontSize: "20px",
+                lineHeight: 1.5,
+                fontFamily: "DMSans-Light",
+                color: "#F0F0F2",
+                [theme.breakpoints.down("md")]: {
+                  fontSize: "18px",
+                },
+                [theme.breakpoints.down("sm")]: {
+                  fontSize: "16px",
+                },
+              }}
+            >
+              Revolutionizing the creation and expansion of voice, video
+              applications, and Conversational AI
+            </Typography>
+          )}
           <Box sx={{ display: "flex", justifyContent: "center", gap: 2 }}>
             <Button
               component="a"

@@ -62,8 +62,10 @@ const FeatureSlider = () => {
   const [currentIndex, setCurrentIndex] = useState(0);
   const isMobile = useMediaQuery("(max-width:600px)");
   const isTablet = useMediaQuery("(max-width:900px)");
+  const isDesktop = useMediaQuery("(min-width:901px)");
 
   const slidesToShow = isMobile ? 1 : isTablet ? 2 : 3;
+  const slidePadding = isMobile ? 3 : isTablet ? 1 : 6; // Custom padding based on device type
 
   const handleNext = () => {
     setCurrentIndex((prevIndex) =>
@@ -81,8 +83,7 @@ const FeatureSlider = () => {
   useEffect(() => {
     const autoplay = setInterval(() => {
       handleNext();
-    }, 3000); // Change slide every 3 seconds
-
+    }, 3000);
     return () => clearInterval(autoplay);
   }, [currentIndex, slidesToShow]);
 
@@ -92,7 +93,7 @@ const FeatureSlider = () => {
         position: "relative",
         width: "90%",
         overflow: "hidden",
-        height: "60vh",
+        height: "80vh",
         display: "flex",
         alignItems: "center",
         justifyContent: "center",
@@ -103,18 +104,13 @@ const FeatureSlider = () => {
         onClick={handlePrev}
         sx={{
           position: "absolute",
-          left: "5px", // Adjusted spacing
+          left: 0,
           transform: "translateY(-50%)",
           top: "50%",
           zIndex: 10,
-          color: isPrevDisabled ? "grey" : "white",
+          color: "white",
           opacity: isPrevDisabled ? 0.5 : 1,
           cursor: isPrevDisabled ? "not-allowed" : "pointer",
-          // "&:hover": {
-          //   backgroundColor: isPrevDisabled
-          //     ? "transparent"
-          //     : "rgba(255, 255, 255, 0.3)",
-          // },
         }}
         aria-label="Previous"
       >
@@ -133,7 +129,7 @@ const FeatureSlider = () => {
             key={index}
             sx={{
               flex: `0 0 ${100 / slidesToShow}%`,
-              p: 5,
+              px: slidePadding, // Use dynamic padding
               boxSizing: "border-box",
             }}
           >
@@ -145,18 +141,13 @@ const FeatureSlider = () => {
         onClick={handleNext}
         sx={{
           position: "absolute",
-          right: "5px", // Adjusted spacing
+          right: 0,
           transform: "translateY(-50%)",
           top: "50%",
           zIndex: 10,
-          color: isNextDisabled ? "grey" : "white",
+          color: "white",
           opacity: isNextDisabled ? 0.5 : 1,
           cursor: isNextDisabled ? "not-allowed" : "pointer",
-          // "&:hover": {
-          //   backgroundColor: isNextDisabled
-          //     ? "transparent"
-          //     : "rgba(255, 255, 255, 0.3)",
-          // },
         }}
         aria-label="Next"
       >
