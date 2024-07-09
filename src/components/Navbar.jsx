@@ -16,7 +16,7 @@ import {
 import MenuIcon from "@mui/icons-material/Menu";
 import HomeIcon from "@mui/icons-material/Home";
 import InfoIcon from "@mui/icons-material/Info";
-import { ReactComponent as ContactMailIcon } from "./assets/images/MailIcon.svg"; // Correct way to import SVG as React component
+import { ReactComponent as ContactMailIcon } from "./assets/images/MailIcon.svg";
 import { styled } from "@mui/material/styles";
 
 const CustomButton = styled(Button)(({ theme }) => ({
@@ -136,13 +136,18 @@ const Navbar = ({ scrollToRef }) => {
         sx={{
           width: 180,
           ".MuiDrawer-paper": {
-            backgroundColor: "rgba(255, 255, 255, 0.2)",
+            width: 180,
+            backgroundColor: "rgba(255, 246, 246, 0.5)",
             backdropFilter: "blur(100px)",
             color: "white",
             overflowY: "auto",
             display: "flex",
             flexDirection: "column",
-            justifyContent: "Top",
+            justifyContent: "top",
+            ...(drawerOpen && {
+              height: "40vh",
+              borderRadius: "20px 0px 20px 20px",
+            }),
           },
         }}
       >
