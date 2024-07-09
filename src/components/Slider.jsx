@@ -65,7 +65,7 @@ const FeatureSlider = () => {
   const isDesktop = useMediaQuery("(min-width:901px)");
 
   const slidesToShow = isMobile ? 1 : isTablet ? 2 : 3;
-  const slidePadding = isMobile ? 3 : isTablet ? 1 : 6; // Custom padding based on device type
+  const slidePadding = isMobile ? 0.5 : isTablet ? 1 : 6; // Custom padding based on device type
 
   const handleNext = () => {
     setCurrentIndex((prevIndex) =>
