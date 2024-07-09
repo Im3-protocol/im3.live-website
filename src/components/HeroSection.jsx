@@ -105,6 +105,20 @@ const HeroSection = () => {
           >
             IM3 is the Web3 Evolution of Real-Time Cloud
           </Typography>
+          <Typography
+            variant="body1"
+            component="div"
+            sx={{
+              mb: 4,
+              fontSize: "20px",
+              lineHeight: 1.5,
+              fontFamily: "DMSans-Light",
+              color: "#F0F0F2",
+            }}
+          >
+            Revolutionizing the creation and expansion of voice, video
+            applications, and Conversational AI
+          </Typography>
           <Box sx={{ display: "flex", justifyContent: "center", gap: 2 }}>
             <Button
               component="a"
