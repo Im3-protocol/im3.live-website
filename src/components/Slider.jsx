@@ -80,12 +80,12 @@ const FeatureSlider = () => {
   const isPrevDisabled = currentIndex === 0;
   const isNextDisabled = currentIndex >= features.length - slidesToShow;
 
-  // useEffect(() => {
-  //   const autoplay = setInterval(() => {
-  //     handleNext();
-  //   }, 3000);
-  //   return () => clearInterval(autoplay);
-  // }, [currentIndex, slidesToShow]);
+  useEffect(() => {
+    const autoplay = setInterval(() => {
+      handleNext();
+    }, 3000);
+    return () => clearInterval(autoplay);
+  }, [currentIndex, slidesToShow]);
 
   return (
     <Box
