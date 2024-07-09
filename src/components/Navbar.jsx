@@ -14,9 +14,9 @@ import {
   Typography,
 } from "@mui/material";
 import MenuIcon from "@mui/icons-material/Menu";
-import HomeIcon from "@mui/icons-material/Home";
-import InfoIcon from "@mui/icons-material/Info";
-import ContactMailIcon from "@mui/icons-material/ContactMail";
+import HomeIcon from "@mui/icons-material/Home"; // Example SVG icon
+import InfoIcon from "@mui/icons-material/Info"; // Example SVG icon
+import ContactMailIcon from "@mui/icons-material/ContactMail"; // Example SVG icon
 import { styled } from "@mui/material/styles";
 
 const CustomButton = styled(Button)(({ theme }) => ({
@@ -127,11 +127,12 @@ const Navbar = ({ scrollToRef }) => {
             backgroundColor: "rgba(255, 255, 255, 0.2)",
             backdropFilter: "blur(80px)",
             color: "white",
-            height: "50%",
+            // height: "auto",
+            // maxHeight: "70vh",
             overflowY: "auto",
             display: "flex",
             flexDirection: "column",
-            justifyContent: "top",
+            justifyContent: "Top",
           },
         }}
       >
@@ -181,7 +182,8 @@ const Navbar = ({ scrollToRef }) => {
             </ListItem>
             <ListItem
               button
-              onClick={() => handleScrollToSection(scrollToRef.footer)}
+              component="a"
+              href="mailto:IM3.Live.contact@gmail.com"
               sx={{ minHeight: 40, padding: "10px 16px" }}
             >
               <ListItemIcon sx={{ color: "white", opacity: 0.7, minWidth: 40 }}>
