@@ -1,15 +1,21 @@
 import React, { useState } from "react";
-import AppBar from "@mui/material/AppBar";
-import Toolbar from "@mui/material/Toolbar";
-import Box from "@mui/material/Box";
-import Button from "@mui/material/Button";
-import IconButton from "@mui/material/IconButton";
+import {
+  AppBar,
+  Toolbar,
+  Box,
+  Button,
+  IconButton,
+  Drawer,
+  List,
+  ListItem,
+  ListItemText,
+  ListItemIcon,
+  Hidden,
+} from "@mui/material";
 import MenuIcon from "@mui/icons-material/Menu";
-import Drawer from "@mui/material/Drawer";
-import List from "@mui/material/List";
-import ListItem from "@mui/material/ListItem";
-import ListItemText from "@mui/material/ListItemText";
-import Hidden from "@mui/material/Hidden";
+import HomeIcon from "@mui/icons-material/Home"; // Example SVG icon
+import InfoIcon from "@mui/icons-material/Info"; // Example SVG icon
+import ContactMailIcon from "@mui/icons-material/ContactMail"; // Example SVG icon
 import { styled } from "@mui/material/styles";
 
 const CustomButton = styled(Button)(({ theme }) => ({
@@ -104,7 +110,13 @@ const Navbar = ({ scrollToRef }) => {
         anchor="right"
         open={drawerOpen}
         onClose={handleDrawerToggle}
-        sx={{ width: 250 }}
+        sx={{
+          width: 250,
+          ".MuiDrawer-paper": {
+            backgroundColor: "rgba(255, 255, 255, 0.5)",
+            backdropFilter: "blur(10px)",
+          },
+        }}
       >
         <Box
           sx={{ width: 250 }}
@@ -114,18 +126,27 @@ const Navbar = ({ scrollToRef }) => {
         >
           <List>
             <ListItem button component="a" href="#home">
+              <ListItemIcon>
+                <HomeIcon />
+              </ListItemIcon>
               <ListItemText primary="Home" />
             </ListItem>
             <ListItem
               button
               onClick={() => handleScrollToSection(scrollToRef.intro)}
             >
+              <ListItemIcon>
+                <InfoIcon />
+              </ListItemIcon>
               <ListItemText primary="About" />
             </ListItem>
             <ListItem
               button
               onClick={() => handleScrollToSection(scrollToRef.footer)}
             >
+              <ListItemIcon>
+                <ContactMailIcon />
+              </ListItemIcon>
               <ListItemText primary="Contact Us" />
             </ListItem>
           </List>
