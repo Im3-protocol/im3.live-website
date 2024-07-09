@@ -137,8 +137,8 @@ const Navbar = ({ scrollToRef }) => {
           width: 180,
           ".MuiDrawer-paper": {
             width: 180,
-            backgroundColor: "rgba(255, 246, 246, 0.5)",
-            backdropFilter: "blur(100px)",
+            backgroundColor: "rgba(255, 246, 246, 0.1)",
+            backdropFilter: "blur(10px)",
             color: "white",
             overflowY: "auto",
             display: "flex",
