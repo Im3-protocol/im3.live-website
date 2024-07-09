@@ -93,7 +93,7 @@ const Navbar = ({ scrollToRef }) => {
             margin: "30px",
           }}
         >
-          <img src="/logo1.svg" alt="Logo" />
+          <img src="/logo1.svg" alt="Logo" style={{ width: 90, height: 60 }} />
         </Box>
         <Hidden mdDown>
           <Box>
@@ -134,10 +134,10 @@ const Navbar = ({ scrollToRef }) => {
         open={drawerOpen}
         onClose={handleDrawerToggle}
         sx={{
-          width: 250,
+          width: 180,
           ".MuiDrawer-paper": {
             backgroundColor: "rgba(255, 255, 255, 0.2)",
-            backdropFilter: "blur(80px)",
+            backdropFilter: "blur(100px)",
             color: "white",
             overflowY: "auto",
             display: "flex",

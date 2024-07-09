@@ -133,7 +133,7 @@ const HeroSection = () => {
                   color: "#F0F0F2",
                 }}
               >
-                voice, video applications, and Conversational AI
+                voice, video applications, and conversational AI
               </Typography>
             </>
           ) : (
@@ -155,7 +155,7 @@ const HeroSection = () => {
               }}
             >
               Revolutionizing the creation and expansion of voice, video
-              applications, and Conversational AI
+              applications, and conversational AI
             </Typography>
           )}
           <Box sx={{ display: "flex", justifyContent: "center", gap: 2 }}>

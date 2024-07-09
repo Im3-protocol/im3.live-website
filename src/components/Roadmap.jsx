@@ -49,6 +49,7 @@ const Roadmap = () => {
           mb: 2,
           fontFamily: "PorterFT",
           textAlign: isSmallScreen ? "center" : "left",
+          paddingBottom: "32px",
         }}
       >
         Road Map
@@ -73,6 +74,7 @@ const Roadmap = () => {
             alignItems: "center",
             mt: 2,
             flexWrap: "wrap",
+            paddingTop: "32px",
           }}
         >
           {["NOT STARTED", "DONE", "IN PROGRESS"].map((status, index) => (

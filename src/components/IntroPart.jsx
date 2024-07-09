@@ -63,6 +63,7 @@ const IntroPart = forwardRef((props, ref) => (
             gutterBottom
             sx={{
               fontFamily: "PorterFT",
+              fontSize: "18px",
               margin: "120px 0 50px 0",
             }}
           >
