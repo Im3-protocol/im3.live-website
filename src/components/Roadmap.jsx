@@ -66,30 +66,32 @@ const Roadmap = () => {
           </Grid>
         ))}
       </Grid>
-      <Grid item xs={12}>
-        <Box
-          sx={{
-            display: "flex",
-            justifyContent: "flex-end",
-            alignItems: "center",
-            mt: 2,
-            flexWrap: "wrap",
-            paddingTop: "32px",
-          }}
-        >
-          {["NOT STARTED", "DONE", "IN PROGRESS"].map((status, index) => (
-            <Box
-              key={index}
-              sx={{ display: "flex", alignItems: "center", ml: 2, mb: 1 }}
+      <Box
+        sx={{
+          display: "flex",
+          justifyContent: "flex-end",
+          alignItems: "center",
+          mt: 2,
+          paddingTop: "32px",
+        }}
+      >
+        {["NOT STARTED", "DONE", "IN PROGRESS"].map((status, index) => (
+          <Box
+            key={index}
+            sx={{ display: "flex", alignItems: "center", ml: 2, mb: 1 }}
+          >
+            <ColorCircle status={status} />
+            <Typography
+              sx={{
+                fontFamily: "DMSans-Medium",
+                textAlign: isSmallScreen ? "left" : "left",
+              }}
             >
-              <ColorCircle status={status} />
-              <Typography sx={{ fontFamily: "DMSans-Medium" }}>
-                {status}
-              </Typography>
-            </Box>
-          ))}
-        </Box>
-      </Grid>
+              {status}
+            </Typography>
+          </Box>
+        ))}
+      </Box>
     </Box>
   );
 };
