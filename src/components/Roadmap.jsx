@@ -85,6 +85,7 @@ const Roadmap = () => {
               sx={{
                 fontFamily: "DMSans-Medium",
                 textAlign: isSmallScreen ? "left" : "left",
+                fontSize: isSmallScreen ? "12px" : "16px",
               }}
             >
               {status}
