@@ -93,7 +93,7 @@ const IntroPart = forwardRef((props, ref) => {
               Why Do We Need IM3?
             </Typography>
 
-            <Box sx={{ textAlign: "left" }}>
+            <Box sx={{ textAlign: "left", fontFamily: "DMSans-Regular" }}>
               {[
                 "The Web3 community and decentralized maxis currently do not have a public, secure, and permissionless solution for real-time communication. It's time to change that.",
                 "As we approach an AI-driven future, the web is expected to shift from text to voice and video applications. A secure, open, and permissionless protocol will be crucial for a better internet and a free world.",
@@ -105,14 +105,22 @@ const IntroPart = forwardRef((props, ref) => {
                     href="https://www.custommarketinsights.com/report/live-streaming-market/"
                     target="_blank"
                     rel="noopener noreferrer"
-                    sx={{ fontWeight: "bold", color: "white" }}
+                    sx={{
+                      fontWeight: "bold",
+                      color: "white",
+                      fontFamily: "DMSans-Regular",
+                    }}
                   >
                     USD 256.56 billion
                   </Typography>
                   .
                 </Typography>,
                 "Now is an opportune time for the crypto and Web3 community to attack this market.",
-                <Typography component="span" key="big-brother">
+                <Typography
+                  component="span"
+                  key="big-brother"
+                  sx={{ fontFamily: "DMSans-Regular" }}
+                >
                   Security and data privacy are critical in communications, and
                   we are cognizant of the security issues associated with closed
                   platforms controlled by{" "}
@@ -121,7 +129,11 @@ const IntroPart = forwardRef((props, ref) => {
                     href="https://en.wikipedia.org/wiki/Big_Brother_(Nineteen_Eighty-Four)"
                     target="_blank"
                     rel="noopener noreferrer"
-                    sx={{ fontWeight: "bold", color: "white" }}
+                    sx={{
+                      fontWeight: "bold",
+                      color: "white",
+                      fontFamily: "DMSans-Regular",
+                    }}
                   >
                     Big Brothers
                   </Typography>
