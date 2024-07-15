@@ -33,7 +33,7 @@ const App = () => {
         <IntroPart ref={introPartRef} />
         <ListOfUseCases />
         <Roadmap />
-        <Footer ref={footerRef} />
+        <Footer />
       </Box>
     </Box>
   );

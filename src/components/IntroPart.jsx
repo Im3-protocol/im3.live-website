@@ -3,7 +3,7 @@ import Box from "@mui/material/Box";
 import Typography from "@mui/material/Typography";
 import { Grid, useTheme, useMediaQuery } from "@mui/material";
 import IM3Image from "./assets/images/IM3.png";
-import bulletIcon from "./assets/images/BulletIcon.png";
+import bulletIcon from "./assets/images/BulletIcon.svg";
 
 const IntroPart = forwardRef((props, ref) => {
   const theme = useTheme();
@@ -153,9 +153,11 @@ const IntroPart = forwardRef((props, ref) => {
                     src={bulletIcon}
                     alt="Bullet"
                     style={{
-                      width: "20px",
+                      marginTop: "5px",
+                      width: "15px",
                       marginRight: "8px",
                       alignSelf: "flex-start",
+                      alignItems: "flex-start",
                     }}
                   />
                   {text}
