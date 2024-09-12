@@ -32,7 +32,12 @@ const Footer = React.forwardRef((props, ref) => (
     />
 
     {/* Logo */}
-    <Box component="img" src="./logo1.svg" alt="Logo" />
+    <Box component="img" src="./im3.svg" alt="Logo"  sx={{
+          boxShadow: 1,
+          borderRadius: 2,
+          p: 2,
+          maxWidth: 260,
+        }} />
 
     {/* Follow Us Label */}
     <Typography variant="h6" sx={{ mt: 8, fontFamily: "PorterFT" }}>
