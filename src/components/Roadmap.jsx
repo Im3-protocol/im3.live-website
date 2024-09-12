@@ -32,7 +32,8 @@ const ColorCircle = styled("span")(({ theme, status }) => ({
 const Roadmap = () => {
   const theme = useTheme();
   const isSmallScreen = useMediaQuery(theme.breakpoints.down("sm"));
-
+  const isDesktop =  useMediaQuery(theme.breakpoints.up('lg'));
+  const isWideScreen = useMediaQuery(theme.breakpoints.up('xl'));
   return (
     <Box
       sx={{
@@ -41,6 +42,7 @@ const Roadmap = () => {
         p: 2,
         borderRadius: 1,
         margin: isSmallScreen ? 2 : 8,
+        marginX: isWideScreen? 50 : isDesktop ? 30 : isSmallScreen? 2 : 1,
       }}
     >
       <Typography
