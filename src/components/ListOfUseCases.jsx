@@ -73,7 +73,7 @@ const useCasesData = [
     items: [
       "Video Conferencing",
       "Corporate Town Halls/AMAs",
-      "Token/NFT-based Virtual Conferences/Spaces/AMAs",
+      "Token/NFT-based Virtual Conferences/Spaces/Meets",
       "Online Political/Web3 Projects Town Halls",
       "Token-gated Investment Seminars",
       "Online Parent-Teacher Meetings",
@@ -141,7 +141,7 @@ const ListOfUseCases = () => {
                 minHeight: 260,
                 flex: 1,
                 backgroundColor: "rgba(253, 253, 253, 0.1)",
-                width: "100%", // Ensures the box takes the full width of its grid item
+                width: "80%", // Ensures the box takes the full width of its grid item
               }}
             >
               <Box sx={{ display: "flex", alignItems: "center", mb: 2 }}>
@@ -157,7 +157,7 @@ const ListOfUseCases = () => {
               </Box>
               <List sx={{ flex: 1, overflow: "auto", py: 0 }}>
                 {useCase.items.map((item, idx) => (
-                  <ListItem key={idx} sx={{ py: 0 }}>
+                  <ListItem key={idx} sx={{ py: .8 }}>
                     <ListItemIcon sx={{ minWidth: 24 }}>
                       <CircleIcon sx={{ color: "#F5F5F5", fontSize: 10 }} />
                     </ListItemIcon>
