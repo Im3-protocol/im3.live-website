@@ -93,7 +93,7 @@ const Navbar = ({ scrollToRef }) => {
             margin: "30px",
           }}
         >
-          <img src="/logo1.svg" alt="Logo" style={{ width: 90, height: 60 }} />
+          <img src="/im3.svg" alt="Logo" style={{ width: 120, height: 60 }} />
         </Box>
         <Hidden mdDown>
           <Box>
