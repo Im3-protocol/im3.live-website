@@ -39,7 +39,8 @@ const HeroSection = () => {
           left: "50%",
           transform: "translate(-50%, -50%)",
           height: "773px",
-          width: "1057px",
+          width: "100vw",
+          maxWidth: "1057px",
           backgroundImage: `url(${heroBackground})`,
           backgroundSize: "cover",
           backgroundPosition: "center",
@@ -49,7 +50,7 @@ const HeroSection = () => {
             width: "600px",
           },
           [theme.breakpoints.down("sm")]: {
-            height: "300px",
+            height: "250px",
             width: "100%",
           },
         }}
