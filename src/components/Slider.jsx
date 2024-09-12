@@ -4,7 +4,6 @@ import ArrowBackIosIcon from "@mui/icons-material/ArrowBackIos";
 import ArrowForwardIosIcon from "@mui/icons-material/ArrowForwardIos";
 import FeatureCard from "./FeatureCard";
 
-// Importing images
 import Decentralized from "./assets/images/cards/Decentralized.png";
 import CensorshipResistant from "./assets/images/cards/Censorship Resistant.png";
 import Web3Friendly from "./assets/images/cards/Web3 Friendly.png";
@@ -60,44 +59,82 @@ const features = [
 
 const FeatureSlider = () => {
   const [currentIndex, setCurrentIndex] = useState(0);
-  const isMobile = useMediaQuery("(max-width:600px)");
-  const isTablet = useMediaQuery("(max-width:900px)");
-  const isDesktop = useMediaQuery("(min-width:901px)");
 
-  const slidesToShow = isMobile ? 1 : isTablet ? 2 : 3;
-  const slidePadding = isMobile ? 0.5 : isTablet ? 1 : 6; // Custom padding based on device type
+  // media query breakpoints
+  const isOldMobile = useMediaQuery("(max-width:320px)");
+  const isMobile = useMediaQuery("(max-width:420px)");
+  const mobileSpacial = useMediaQuery("(max-width:425px)");
+  const isTablet = useMediaQuery("(max-width:900px)");
+  const isSmallDesktop = useMediaQuery("(max-width:1200px)");
+  const isDesktop = useMediaQuery("(min-width:1201px)");
+  const isWideScreen = useMediaQuery("(min-width: 2560px)");
+
+  const slidesToShow = isMobile
+    ? 1
+    : mobileSpacial
+    ? 1
+    : isTablet
+    ? 2
+    : isWideScreen
+    ? 4
+    : isDesktop
+    ? 3
+    : isSmallDesktop
+    ? 2
+    : 1;
+
+  // const slidePadding = isOldMobile
+  //   ? .7
+  //   : mobileSpacial
+  //   ? 5.5
+  //   : isMobile
+  //   ? 2.5
+  //   : isTablet
+  //   ? 3
+  //   : 3;
 
   const handleNext = () => {
     setCurrentIndex((prevIndex) =>
-      Math.min(prevIndex + 1, features.length - slidesToShow)
+      (prevIndex + 1) % (features.length - slidesToShow + 1)
     );
   };
 
   const handlePrev = () => {
-    setCurrentIndex((prevIndex) => Math.max(prevIndex - 1, 0));
+    setCurrentIndex((prevIndex) =>
+      (prevIndex - 1 + features.length) % (features.length - slidesToShow + 1)
+    );
   };
-
-  const isPrevDisabled = currentIndex === 0;
-  const isNextDisabled = currentIndex >= features.length - slidesToShow;
 
   useEffect(() => {
     const autoplay = setInterval(() => {
       handleNext();
     }, 3000);
     return () => clearInterval(autoplay);
-  }, [currentIndex, slidesToShow]);
+  }, [currentIndex]);
 
   return (
     <Box
       sx={{
         position: "relative",
-        width: "90%",
+        width: "100%",
+        maxWidth: isWideScreen
+          ? "1500px"
+          : isSmallDesktop
+          ? "780px"
+          : isMobile
+          ? "375px"
+          : isOldMobile
+          ? "320px"
+          : "1200px",
+        margin: "0 auto",
         overflow: "hidden",
-        height: "80vh",
+        height: {
+          xs: "60vh", 
+          sm: "80vh",
+        },
         display: "flex",
         alignItems: "center",
         justifyContent: "center",
-        margin: "60px auto",
       }}
     >
       <IconButton
@@ -109,13 +146,13 @@ const FeatureSlider = () => {
           top: "50%",
           zIndex: 10,
           color: "white",
-          opacity: isPrevDisabled ? 0.5 : 1,
-          cursor: isPrevDisabled ? "not-allowed" : "pointer",
+          cursor: "pointer",
         }}
         aria-label="Previous"
       >
         <ArrowBackIosIcon />
       </IconButton>
+
       <Box
         display="flex"
         sx={{
@@ -129,7 +166,7 @@ const FeatureSlider = () => {
             key={index}
             sx={{
               flex: `0 0 ${100 / slidesToShow}%`,
-              px: slidePadding, // Use dynamic padding
+              px: 3,
               boxSizing: "border-box",
             }}
           >
@@ -137,6 +174,7 @@ const FeatureSlider = () => {
           </Box>
         ))}
       </Box>
+
       <IconButton
         onClick={handleNext}
         sx={{
@@ -146,8 +184,7 @@ const FeatureSlider = () => {
           top: "50%",
           zIndex: 10,
           color: "white",
-          opacity: isNextDisabled ? 0.5 : 1,
-          cursor: isNextDisabled ? "not-allowed" : "pointer",
+          cursor: "pointer",
         }}
         aria-label="Next"
       >
