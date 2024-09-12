@@ -5,7 +5,7 @@ const FeatureCard = ({ feature }) => {
   return (
     <Card
       sx={{
-        width: 330, // width of the card
+        width: "100wv", // width of the card
         height: 408, // fixed height of the card
         borderRadius: "20px",
         overflow: "hidden",
